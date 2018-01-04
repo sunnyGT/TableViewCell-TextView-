@@ -25,14 +25,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.textViewList registerNib:[UINib nibWithNibName:@"TextViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"TextCell"];
+    
     self.textViewList.estimatedRowHeight = 50.f;
     self.textViewList.rowHeight = UITableViewAutomaticDimension;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reset:)];
+    [self.textViewList registerNib:[UINib nibWithNibName:@"TextViewTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TextCell"];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reset:)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(test:)];
+    [self.textViewList addGestureRecognizer:tap];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void)test:(id)sender{
+    NSLog(@"tap");
+}
 - (void)reset:(UIBarButtonItem *)sender{
     [self.cellHeightDic removeAllObjects];
     [self.textViewList reloadData];
@@ -62,10 +68,11 @@
 #pragma mark -- Tabledelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    TextViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextCell" forIndexPath:indexPath];
-    cell.textView.text = self.cellHeightDic[indexPath]? :@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-    cell.textView.delegate = self;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextCell"];
+
+    TextViewTableViewCell *tempCell = (TextViewTableViewCell *)cell;
+    tempCell.textView.text = self.cellHeightDic[indexPath]? :@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    tempCell.textView.delegate = self;
     return cell;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -77,7 +84,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 
 #pragma mark - textViewDelegate
 
@@ -101,7 +107,6 @@
     _currentTextView = textView;
     UITableViewCell *tempCell = (UITableViewCell *)[[_currentTextView superview] superview];
     _currentIndexPath = [self.textViewList indexPathForCell:tempCell];
-
     return YES;
 }
 

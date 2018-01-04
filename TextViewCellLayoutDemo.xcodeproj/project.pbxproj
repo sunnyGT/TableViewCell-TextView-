@@ -215,6 +215,7 @@
 				TargetAttributes = {
 					00F868CC1D67E76900BAFD65 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = YY8765RCWW;
 					};
 					00F868E51D67E76900BAFD65 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -423,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YY8765RCWW;
 				INFOPLIST_FILE = TextViewCellLayoutDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -435,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YY8765RCWW;
 				INFOPLIST_FILE = TextViewCellLayoutDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -508,6 +511,7 @@
 				00F868FC1D67E76900BAFD65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00F868FD1D67E76900BAFD65 /* Build configuration list for PBXNativeTarget "TextViewCellLayoutDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +520,7 @@
 				00F868FF1D67E76900BAFD65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00F869001D67E76900BAFD65 /* Build configuration list for PBXNativeTarget "TextViewCellLayoutDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +529,7 @@
 				00F869021D67E76900BAFD65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
